@@ -1,0 +1,37 @@
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    min-height: 100vh;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+}
+
+.home-page {
+    background-color: $very-light-gray-light-mode-background;
+    color: $very-dark-blue-light-mode-text;
+    font-size: 1.4rem;
+}
+
+.detail-page {
+    background-color: $very-dark-blue-dark-mode-background;
+    color: $white-dark-mode-text;
+    font-size: 1.6rem;
+}
