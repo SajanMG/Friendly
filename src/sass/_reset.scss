@@ -19,6 +19,10 @@ body {
     font-weight: 300;
 }
 
+a {
+    text-decoration: none;
+    color: $very-dark-blue-light-mode-text;
+}
 .container {
     max-width: 1440px;
     width: 100%;

@@ -23,13 +23,16 @@
     }
 
     &__region-items {
+        display: none;
         position: absolute;
         top: 52px;
         left: 0;
         width: 100%;
+
         background-color: $white-light-mode-elements;
         list-style: none;
-        display: none;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
 
         .region-item {
             padding: 1rem;
@@ -47,5 +50,6 @@
 
     .show-region {
         display: block;
+        z-index: 100;
     }
 }
