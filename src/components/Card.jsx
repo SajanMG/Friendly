@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Country = ({ country }) => {
+const Card = ({ country }) => {
     return (
         <Link to={`/${country.name}`}>
             <div className="card">
@@ -29,4 +29,4 @@ const Country = ({ country }) => {
     )
 }
 
-export default Country
+export default Card

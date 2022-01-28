@@ -10,6 +10,13 @@ export const getAllCountries = createAsyncThunk('getCountries', async () => {
 const fetchCountriesSlice = createSlice({
     name: 'countries',
     initialState: { countries: [], status: null },
+    reducers: {
+        filterByRegion: (state, { payload }) => {
+            state.countries = state.countries?.filter(
+                (country) => country.region === payload
+            )
+        },
+    },
     extraReducers: {
         [getAllCountries.pending]: (state, _action) => {
             state.status = 'loading'
@@ -25,5 +32,6 @@ const fetchCountriesSlice = createSlice({
 })
 
 export const selectedCountries = (state) => state.countries
+export const { filterByRegion } = fetchCountriesSlice.actions
 
 export default fetchCountriesSlice.reducer
