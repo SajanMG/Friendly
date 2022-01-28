@@ -1,0 +1,22 @@
+@use '../variables' as *;
+
+.home {
+    padding: 4rem 1rem;
+    background-color: $very-light-gray-light-mode-background;
+    color: $very-dark-blue-light-mode-text;
+    font-size: 1.4rem;
+    width: 100%;
+    height: 100%;
+
+    &__search-and-filter-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: 690px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    }
+}

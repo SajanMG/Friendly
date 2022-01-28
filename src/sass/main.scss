@@ -1,4 +1,7 @@
 @use 'variables';
 @use 'reset';
 @use './components/header';
+@use './components/search-box';
+@use './components/filter-search';
+@use './components/home';
 @use './components/footer';

@@ -1,0 +1,51 @@
+@use '../variables' as *;
+
+.filter-box {
+    position: relative;
+
+    &__label {
+        display: flex;
+        justify-content: space-between;
+        width: 19rem;
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+        padding: 1.5rem 1rem;
+        background-color: $white-light-mode-elements;
+        cursor: pointer;
+
+        p {
+            font-weight: 600;
+        }
+
+        .down-icon {
+            height: 2rem;
+        }
+    }
+
+    &__region-items {
+        position: absolute;
+        top: 52px;
+        left: 0;
+        width: 100%;
+        background-color: $white-light-mode-elements;
+        list-style: none;
+        display: none;
+
+        .region-item {
+            padding: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: capitalize;
+            color: $very-dark-blue-light-mode-text;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #f1f1f173;
+            }
+        }
+    }
+
+    .show-region {
+        display: block;
+    }
+}

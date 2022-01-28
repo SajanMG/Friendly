@@ -1,0 +1,27 @@
+@use '../variables' as *;
+
+.search-box {
+    max-width: 400px;
+    width: 95%;
+
+    display: flex;
+    align-items: center;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .search-icon {
+        height: 2.5rem;
+        width: 1.8rem;
+        margin-left: 1rem;
+        color: $dark-gray-light-mode-input;
+    }
+
+    .input {
+        padding: 1.5rem 1rem;
+        flex: 1;
+        color: $dark-gray-light-mode-input;
+        outline: none;
+        border: none;
+    }
+}
