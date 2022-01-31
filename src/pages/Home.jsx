@@ -1,32 +1,45 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
-import {
-    selectedCountries,
-    getAllCountries,
-} from '../features/countries/fetchCountriesSlice'
 import FilterSearch from '../components/FilterSearch'
 import SearchInput from '../components/SearchInput'
 import Card from '../components/Card'
 
 const Home = () => {
-    const { countries, status } = useSelector(selectedCountries)
-
+    const [countries, setCountries] = useState(null)
     const [searchText, setSearchText] = useState('')
-
-    const dispatch = useDispatch()
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        let isMounted = true
+        getAllCountries()
+    }, [])
 
-        if (isMounted) {
-            dispatch(getAllCountries())
-        }
+    // Fetch all countries
+    const getAllCountries = async () => {
+        setIsLoading(true)
 
-        return () => {
-            isMounted = false
+        const response = await fetch('https://restcountries.com/v3.1/all')
+        const data = await response.json()
+
+        if (data) {
+            setCountries(data)
+            setIsLoading(false)
         }
-    }, [dispatch])
+    }
+
+    // Fetch countries by region
+    const getCountriesByRegion = async (region) => {
+        setIsLoading(true)
+
+        const response = await fetch(
+            `https://restcountries.com/v3.1/region/${region}`
+        )
+        const data = await response.json()
+
+        if (data) {
+            setCountries(data)
+            setIsLoading(false)
+        }
+    }
 
     return (
         <section className="home">
@@ -35,25 +48,28 @@ const Home = () => {
                     searchText={searchText}
                     setSearchText={setSearchText}
                 />
-                <FilterSearch />
+                <FilterSearch getCountriesByRegion={getCountriesByRegion} />
             </div>
 
-            {status === 'loading' ? (
+            {isLoading ? (
                 <h2>Loading...</h2>
             ) : (
                 <div className="home__country-container">
                     {countries
-                        ?.filter((filteredCountry) => {
-                            if (SearchInput === '') {
-                                return filteredCountry
+                        ?.filter((filteredCountries) => {
+                            if (searchText === '') {
+                                return filteredCountries
                             }
 
-                            return filteredCountry?.name
+                            return filteredCountries.name.official
                                 .toLowerCase()
                                 .includes(searchText.toLowerCase())
                         })
                         .map((country) => (
-                            <Card key={country.name} country={country} />
+                            <Card
+                                key={country.name.official}
+                                country={country}
+                            />
                         ))}
                 </div>
             )}

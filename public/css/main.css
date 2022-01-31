@@ -150,6 +150,7 @@ a {
 .card {
   max-width: 270px;
   width: 95%;
+  height: 400px;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 4px 8px 15px -9px rgba(0, 0, 0, 0.192);

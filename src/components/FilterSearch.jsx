@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
-import { filterByRegion } from '../features/countries/fetchCountriesSlice'
-
-const FilterSearch = () => {
+const FilterSearch = ({ getCountriesByRegion }) => {
     const [toggleFilter, setToggleFilter] = useState(false)
 
     const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
-
-    const dispatch = useDispatch()
 
     return (
         <div
@@ -31,7 +27,7 @@ const FilterSearch = () => {
                     <li
                         key={index}
                         className="region-item"
-                        onClick={() => dispatch(filterByRegion(region))}
+                        onClick={() => getCountriesByRegion(region)}
                     >
                         {region}
                     </li>

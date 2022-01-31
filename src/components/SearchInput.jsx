@@ -2,17 +2,19 @@ import React from 'react'
 import { SearchIcon } from '@heroicons/react/solid'
 
 const SearchInput = ({ searchText, setSearchText }) => {
+    const searchHandler = (e) => setSearchText(e.target.value)
+
     return (
-        <div className="search-box">
+        <form className="search-box">
             <SearchIcon className="search-icon" />
             <input
                 type="text"
                 placeholder="Search for a country..."
                 className="input"
                 value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
+                onChange={searchHandler}
             />
-        </div>
+        </form>
     )
 }
 
