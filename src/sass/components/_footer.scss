@@ -2,4 +2,15 @@
 
 .footer {
     grid-area: footer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.3rem;
+
+    a {
+        text-decoration: underline;
+        font-weight: 600;
+    }
 }

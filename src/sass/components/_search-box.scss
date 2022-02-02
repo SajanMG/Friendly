@@ -6,7 +6,7 @@
 
     display: flex;
     align-items: center;
-    border: 1px solid #dddddd;
+    border: $light-border;
     border-radius: 5px;
     overflow: hidden;
 
@@ -20,8 +20,13 @@
     .input {
         padding: 1.5rem 1rem;
         flex: 1;
+        background-color: transparent;
         color: $dark-gray-light-mode-input;
         outline: none;
         border: none;
     }
+}
+
+.color {
+    color: $white-dark-mode-text;
 }

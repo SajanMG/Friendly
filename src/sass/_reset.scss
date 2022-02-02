@@ -15,6 +15,8 @@ html {
 
 body {
     min-height: 100vh;
+    background-color: $very-light-gray-light-mode-background;
+    color: $very-dark-blue-light-mode-text;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
 }
@@ -39,10 +41,64 @@ a {
 
 .main {
     grid-area: main;
+    height: 100%;
 }
 
-.detail-page {
-    background-color: $very-dark-blue-dark-mode-background;
-    color: $white-dark-mode-text;
-    font-size: 1.6rem;
+.generic-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 1rem 2.6rem;
+    outline: none;
+    border: $light-border;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: transform 300ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: $shadow;
+    }
+}
+
+.spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+
+    &__circle {
+        width: 8rem;
+        height: 8rem;
+        border-top: 5px solid $very-dark-blue-dark-mode-background;
+        border-radius: 50%;
+        animation: spinner 1.4s infinite linear;
+    }
+
+    h2 {
+        margin-top: 2rem;
+        font-size: 1.9rem;
+        color: $white-dark-mode-text;
+        letter-spacing: 2px;
+    }
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

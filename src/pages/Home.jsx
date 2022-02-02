@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import FilterSearch from '../components/FilterSearch'
 import SearchInput from '../components/SearchInput'
 import Card from '../components/Card'
+import Spinner from '../components/Spinner'
 
 const Home = () => {
     const [countries, setCountries] = useState(null)
@@ -52,7 +53,7 @@ const Home = () => {
             </div>
 
             {isLoading ? (
-                <h2>Loading...</h2>
+                <Spinner />
             ) : (
                 <div className="home__country-container">
                     {countries

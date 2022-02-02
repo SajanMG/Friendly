@@ -2,15 +2,15 @@
 
 .filter-box {
     position: relative;
+    background-color: $white-light-mode-elements;
 
     &__label {
         display: flex;
         justify-content: space-between;
         width: 19rem;
-        border: 1px solid #dddddd;
+        border: $light-border;
         border-radius: 5px;
         padding: 1.5rem 1rem;
-        background-color: $white-light-mode-elements;
         cursor: pointer;
 
         p {

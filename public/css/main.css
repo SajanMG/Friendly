@@ -13,6 +13,8 @@ html {
 
 body {
   min-height: 100vh;
+  background-color: #fafafa;
+  color: #111517;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
 }
@@ -34,14 +36,61 @@ a {
 
 .main {
   grid-area: main;
+  height: 100%;
 }
 
-.detail-page {
-  background-color: #202c37;
+.generic-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2.6rem;
+  outline: none;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: transform 300ms ease-in-out;
+}
+.generic-button:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 8px 15px -9px rgba(0, 0, 0, 0.192);
+}
+
+.spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+}
+.spinner__circle {
+  width: 8rem;
+  height: 8rem;
+  border-top: 5px solid #202c37;
+  border-radius: 50%;
+  animation: spinner 1.4s infinite linear;
+}
+.spinner h2 {
+  margin-top: 2rem;
+  font-size: 1.9rem;
   color: white;
-  font-size: 1.6rem;
+  letter-spacing: 2px;
 }
 
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .header {
   grid-area: header;
   width: 100%;
@@ -66,7 +115,6 @@ a {
   outline: none;
   border-radius: 5px;
   background-color: inherit;
-  color: #858585;
   cursor: pointer;
   transition: box-shadow 200ms ease-in;
 }
@@ -96,13 +144,19 @@ a {
 .search-box .input {
   padding: 1.5rem 1rem;
   flex: 1;
+  background-color: transparent;
   color: #858585;
   outline: none;
   border: none;
 }
 
+.color {
+  color: white;
+}
+
 .filter-box {
   position: relative;
+  background-color: white;
 }
 .filter-box__label {
   display: flex;
@@ -111,7 +165,6 @@ a {
   border: 1px solid #dddddd;
   border-radius: 5px;
   padding: 1.5rem 1rem;
-  background-color: white;
   cursor: pointer;
 }
 .filter-box__label p {
@@ -181,8 +234,6 @@ a {
 
 .home {
   padding: 4rem 1rem;
-  background-color: #fafafa;
-  color: #111517;
   font-size: 1.4rem;
   width: 100%;
   height: 100%;
@@ -222,8 +273,102 @@ a {
   }
 }
 
+.detail {
+  padding: 4rem 1rem;
+  background-color: #fafafa;
+  color: #111517;
+  font-size: 1.6rem;
+  width: 100%;
+  height: 100%;
+}
+.detail .arrow-left {
+  height: 2rem;
+}
+.detail__contents {
+  display: flex;
+  margin-top: 5rem;
+}
+.detail__image-box {
+  position: relative;
+  width: 500px;
+}
+.detail__image-box img {
+  width: 100%;
+  display: block;
+}
+@media screen and (max-width: 1140px) {
+  .detail__contents {
+    flex-direction: column;
+  }
+  .detail__image-box {
+    width: 100%;
+  }
+}
+.detail__info {
+  padding: 2rem 7rem;
+  flex: 1;
+}
+.detail__info .country-name {
+  margin-bottom: 2rem;
+}
+.detail__info .more-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  line-height: 1.7;
+}
+.detail__info .more-info .text {
+  font-weight: 600;
+}
+.detail__info .more-info .text span {
+  font-weight: 300;
+}
+@media screen and (max-width: 1140px) {
+  .detail__info {
+    padding: 3rem 0;
+  }
+  .detail__info .more-info {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+.detail__border-countries {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+.detail__border-countries .text {
+  width: 50%;
+  font-weight: 600;
+}
+.detail__border-countries .border-btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media screen and (max-width: 1140px) {
+  .detail__border-countries {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .detail__border-countries .text {
+    margin-bottom: 2rem;
+  }
+}
+
 .footer {
   grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.3rem;
+}
+.footer a {
+  text-decoration: underline;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=main.css.map */

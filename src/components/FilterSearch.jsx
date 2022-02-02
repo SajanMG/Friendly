@@ -12,7 +12,7 @@ const FilterSearch = ({ getCountriesByRegion }) => {
             className="filter-box"
             onClick={() => setToggleFilter(!toggleFilter)}
         >
-            <div className="filter-box__label">
+            <div className="filter-box__label ">
                 <p>Filter by Region</p>
                 <ChevronDownIcon className="down-icon" />
             </div>
@@ -29,7 +29,7 @@ const FilterSearch = ({ getCountriesByRegion }) => {
                         className="region-item"
                         onClick={() => getCountriesByRegion(region)}
                     >
-                        {region}
+                        <p>{region}</p>
                     </li>
                 ))}
             </ul>
